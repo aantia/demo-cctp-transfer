@@ -1,7 +1,7 @@
 import { CircleTransfer, wormhole } from '@wormhole-foundation/sdk';
 import evm from '@wormhole-foundation/sdk/evm';
 import solana from '@wormhole-foundation/sdk/solana';
-import { getSigner } from './helpers/helpers';
+import { getSigner, getEnv } from './helpers/helpers';
 
 (async function () {
 	// Initialize the Wormhole object for the Testnet environment and add supported chains (evm and solana)
@@ -19,8 +19,8 @@ import { getSigner } from './helpers/helpers';
 	const xfer = await CircleTransfer.from(
 		wh,
 		{
-			chain: 'Avalanche',
-			txid: '0x6b6d5f101a32aa6d2f7bf0bf14d72bfbf76a640e1b2fdbbeeac5b82069cda4dd',
+			chain: 'Solana',
+			txid: getEnv('SOURCE_TXID'),
 		},
 		timeout
 	);
