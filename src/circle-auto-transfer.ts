@@ -6,8 +6,8 @@ import { getSigner } from './helpers/helpers';
 (async function () {
 	const wh = await wormhole('Testnet', [evm, solana]);
 
-	const sendChain = wh.getChain('Avalanche');
-	const rcvChain = wh.getChain('Sepolia');
+	const sendChain = wh.getChain('Solana');
+	const rcvChain = wh.getChain('Ethereum');
 
 	// Get signer from local key
 	const source = await getSigner(sendChain);
