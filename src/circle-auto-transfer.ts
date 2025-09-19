@@ -29,7 +29,7 @@ import { getSigner } from './helpers/helpers';
 		nativeGas
 	);
 
-	console.log('Starting Transfer');
+	console.log(`Starting Auto Transfer of ${amt} from ${source.address} on ${sendChain.chain} to ${destination.address} on ${rcvChain.chain}`);
 	const srcTxids = await xfer.initiateTransfer(source.signer);
 	console.log(`Started Transfer: `, srcTxids);
 
