@@ -4,7 +4,7 @@ import solana from '@wormhole-foundation/sdk/solana';
 import { getSigner, getEnv } from './helpers/helpers';
 
 (async function () {
-	const wh = await wormhole('Testnet', [evm, solana]);
+	const wh = await wormhole('Mainnet', [evm, solana]);
 
 	const sendChain = wh.getChain('Solana');
 	const rcvChain = wh.getChain('Ethereum');

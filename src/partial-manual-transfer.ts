@@ -4,8 +4,8 @@ import solana from '@wormhole-foundation/sdk/solana';
 import { getSigner, getEnv } from './helpers/helpers';
 
 (async function () {
-	// Initialize the Wormhole object for the Testnet environment and add supported chains (evm and solana)
-	const wh = await wormhole('Testnet', [evm, solana]);
+	// Initialize the Wormhole object for the Mainnet environment and add supported chains (evm and solana)
+	const wh = await wormhole('Mainnet', [evm, solana]);
 
 	// Grab chain Contexts -- these hold a reference to a cached rpc client
 	const rcvChain = wh.getChain('Solana');
