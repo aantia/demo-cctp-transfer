@@ -1,7 +1,7 @@
 import { CircleTransfer, wormhole } from '@wormhole-foundation/sdk';
 import evm from '@wormhole-foundation/sdk/evm';
 import solana from '@wormhole-foundation/sdk/solana';
-import { getSigner } from './helpers/helpers';
+import { getSigner, getEnv } from './helpers/helpers';
 
 (async function () {
 	// Initialize the Wormhole object for the Testnet environment and add supported chains (evm and solana)
@@ -16,7 +16,7 @@ import { getSigner } from './helpers/helpers';
 	const destination = await getSigner(rcvChain);
 
 	// Define the amount of USDC to transfer (in the smallest unit, so 0.1 USDC = 100,000 units assuming 6 decimals)
-	const amt = 100_000n;
+	const amt = BigInt(getEnv('AMOUNT_USDC')) * 1_000_000n;
 
 	const automatic = false;
 

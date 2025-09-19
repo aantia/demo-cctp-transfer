@@ -1,7 +1,7 @@
 import { wormhole, amount } from '@wormhole-foundation/sdk';
 import evm from '@wormhole-foundation/sdk/evm';
 import solana from '@wormhole-foundation/sdk/solana';
-import { getSigner } from './helpers/helpers';
+import { getSigner, getEnv } from './helpers/helpers';
 
 (async function () {
 	const wh = await wormhole('Testnet', [evm, solana]);
@@ -13,7 +13,8 @@ import { getSigner } from './helpers/helpers';
 	const source = await getSigner(sendChain);
 	const destination = await getSigner(rcvChain);
 
-	const amt = 1_000_001n;
+	// Define the amount of USDC to transfer (in the smallest unit, so 0.1 USDC = 100,000 units assuming 6 decimals)
+	const amt = BigInt(getEnv('AMOUNT_USDC')) * 1_000_000n;
 
 	// If set to false the user will have to manually approve the transfer (refer to the circle-manual-transfer.ts file)
 	const automatic = true;

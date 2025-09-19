@@ -18,7 +18,7 @@ export interface SignerStuff<N extends Network, C extends Chain> {
 }
 
 // Function to fetch environment variables (like your private key)
-function getEnv(key: string): string {
+export function getEnv(key: string): string {
 	const val = process.env[key];
 	if (!val) throw new Error(`Missing environment variable: ${key}`);
 	return val;
